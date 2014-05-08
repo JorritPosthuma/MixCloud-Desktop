@@ -1,0 +1,508 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A26D0473191BDF9B0034FFF1 /* SPMediaKeyTap.m in Sources */ = {isa = PBXBuildFile; fileRef = A26D0471191BDF9B0034FFF1 /* SPMediaKeyTap.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A26D0477191BE0610034FFF1 /* NSObject+SPInvocationGrabbing.m in Sources */ = {isa = PBXBuildFile; fileRef = A26D0476191BE0610034FFF1 /* NSObject+SPInvocationGrabbing.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A290A542191A80ED00EC85FB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A290A541191A80ED00EC85FB /* Cocoa.framework */; };
+		A290A54C191A80ED00EC85FB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A290A54A191A80ED00EC85FB /* InfoPlist.strings */; };
+		A290A54E191A80ED00EC85FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A290A54D191A80ED00EC85FB /* main.m */; };
+		A290A552191A80ED00EC85FB /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A290A550191A80ED00EC85FB /* Credits.rtf */; };
+		A290A555191A80ED00EC85FB /* MCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A290A554191A80ED00EC85FB /* MCAppDelegate.m */; };
+		A290A558191A80ED00EC85FB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A290A556191A80ED00EC85FB /* MainMenu.xib */; };
+		A290A55A191A80ED00EC85FB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A290A559191A80ED00EC85FB /* Images.xcassets */; };
+		A290A561191A80ED00EC85FB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A290A560191A80ED00EC85FB /* XCTest.framework */; };
+		A290A562191A80ED00EC85FB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A290A541191A80ED00EC85FB /* Cocoa.framework */; };
+		A290A56A191A80ED00EC85FB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A290A568191A80ED00EC85FB /* InfoPlist.strings */; };
+		A290A56C191A80ED00EC85FB /* MixCloudAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A290A56B191A80ED00EC85FB /* MixCloudAppTests.m */; };
+		A290A576191A822600EC85FB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A290A575191A822600EC85FB /* WebKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A290A563191A80ED00EC85FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A290A536191A80ED00EC85FB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A290A53D191A80ED00EC85FB;
+			remoteInfo = MixCloudApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A26D0470191BDF9B0034FFF1 /* SPMediaKeyTap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMediaKeyTap.h; sourceTree = "<group>"; };
+		A26D0471191BDF9B0034FFF1 /* SPMediaKeyTap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMediaKeyTap.m; sourceTree = "<group>"; };
+		A26D0475191BE0610034FFF1 /* NSObject+SPInvocationGrabbing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SPInvocationGrabbing.h"; sourceTree = "<group>"; };
+		A26D0476191BE0610034FFF1 /* NSObject+SPInvocationGrabbing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SPInvocationGrabbing.m"; sourceTree = "<group>"; };
+		A290A53E191A80ED00EC85FB /* MixCloudApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MixCloudApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A290A541191A80ED00EC85FB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		A290A544191A80ED00EC85FB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		A290A545191A80ED00EC85FB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		A290A546191A80ED00EC85FB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A290A549191A80ED00EC85FB /* MixCloudApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MixCloudApp-Info.plist"; sourceTree = "<group>"; };
+		A290A54B191A80ED00EC85FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A290A54D191A80ED00EC85FB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A290A54F191A80ED00EC85FB /* MixCloudApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MixCloudApp-Prefix.pch"; sourceTree = "<group>"; };
+		A290A551191A80ED00EC85FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		A290A553191A80ED00EC85FB /* MCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCAppDelegate.h; sourceTree = "<group>"; };
+		A290A554191A80ED00EC85FB /* MCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCAppDelegate.m; sourceTree = "<group>"; };
+		A290A557191A80ED00EC85FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		A290A559191A80ED00EC85FB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A290A55F191A80ED00EC85FB /* MixCloudAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MixCloudAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A290A560191A80ED00EC85FB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		A290A567191A80ED00EC85FB /* MixCloudAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MixCloudAppTests-Info.plist"; sourceTree = "<group>"; };
+		A290A569191A80ED00EC85FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A290A56B191A80ED00EC85FB /* MixCloudAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MixCloudAppTests.m; sourceTree = "<group>"; };
+		A290A575191A822600EC85FB /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A290A53B191A80ED00EC85FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A290A576191A822600EC85FB /* WebKit.framework in Frameworks */,
+				A290A542191A80ED00EC85FB /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A290A55C191A80ED00EC85FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A290A562191A80ED00EC85FB /* Cocoa.framework in Frameworks */,
+				A290A561191A80ED00EC85FB /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A26D0479191BE4040034FFF1 /* SPMediaKeyTap */ = {
+			isa = PBXGroup;
+			children = (
+				A26D0475191BE0610034FFF1 /* NSObject+SPInvocationGrabbing.h */,
+				A26D0476191BE0610034FFF1 /* NSObject+SPInvocationGrabbing.m */,
+				A26D0470191BDF9B0034FFF1 /* SPMediaKeyTap.h */,
+				A26D0471191BDF9B0034FFF1 /* SPMediaKeyTap.m */,
+			);
+			name = SPMediaKeyTap;
+			sourceTree = "<group>";
+		};
+		A290A535191A80ED00EC85FB = {
+			isa = PBXGroup;
+			children = (
+				A290A547191A80ED00EC85FB /* MixCloudApp */,
+				A290A565191A80ED00EC85FB /* MixCloudAppTests */,
+				A290A540191A80ED00EC85FB /* Frameworks */,
+				A290A53F191A80ED00EC85FB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A290A53F191A80ED00EC85FB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A290A53E191A80ED00EC85FB /* MixCloudApp.app */,
+				A290A55F191A80ED00EC85FB /* MixCloudAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A290A540191A80ED00EC85FB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A290A575191A822600EC85FB /* WebKit.framework */,
+				A290A541191A80ED00EC85FB /* Cocoa.framework */,
+				A290A560191A80ED00EC85FB /* XCTest.framework */,
+				A290A543191A80ED00EC85FB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A290A543191A80ED00EC85FB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A290A544191A80ED00EC85FB /* AppKit.framework */,
+				A290A545191A80ED00EC85FB /* CoreData.framework */,
+				A290A546191A80ED00EC85FB /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		A290A547191A80ED00EC85FB /* MixCloudApp */ = {
+			isa = PBXGroup;
+			children = (
+				A26D0479191BE4040034FFF1 /* SPMediaKeyTap */,
+				A290A553191A80ED00EC85FB /* MCAppDelegate.h */,
+				A290A554191A80ED00EC85FB /* MCAppDelegate.m */,
+				A290A556191A80ED00EC85FB /* MainMenu.xib */,
+				A290A559191A80ED00EC85FB /* Images.xcassets */,
+				A290A548191A80ED00EC85FB /* Supporting Files */,
+			);
+			path = MixCloudApp;
+			sourceTree = "<group>";
+		};
+		A290A548191A80ED00EC85FB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A290A549191A80ED00EC85FB /* MixCloudApp-Info.plist */,
+				A290A54A191A80ED00EC85FB /* InfoPlist.strings */,
+				A290A54D191A80ED00EC85FB /* main.m */,
+				A290A54F191A80ED00EC85FB /* MixCloudApp-Prefix.pch */,
+				A290A550191A80ED00EC85FB /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A290A565191A80ED00EC85FB /* MixCloudAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				A290A56B191A80ED00EC85FB /* MixCloudAppTests.m */,
+				A290A566191A80ED00EC85FB /* Supporting Files */,
+			);
+			path = MixCloudAppTests;
+			sourceTree = "<group>";
+		};
+		A290A566191A80ED00EC85FB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A290A567191A80ED00EC85FB /* MixCloudAppTests-Info.plist */,
+				A290A568191A80ED00EC85FB /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A290A53D191A80ED00EC85FB /* MixCloudApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A290A56F191A80EE00EC85FB /* Build configuration list for PBXNativeTarget "MixCloudApp" */;
+			buildPhases = (
+				A290A53A191A80ED00EC85FB /* Sources */,
+				A290A53B191A80ED00EC85FB /* Frameworks */,
+				A290A53C191A80ED00EC85FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MixCloudApp;
+			productName = MixCloudApp;
+			productReference = A290A53E191A80ED00EC85FB /* MixCloudApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A290A55E191A80ED00EC85FB /* MixCloudAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A290A572191A80EE00EC85FB /* Build configuration list for PBXNativeTarget "MixCloudAppTests" */;
+			buildPhases = (
+				A290A55B191A80ED00EC85FB /* Sources */,
+				A290A55C191A80ED00EC85FB /* Frameworks */,
+				A290A55D191A80ED00EC85FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A290A564191A80ED00EC85FB /* PBXTargetDependency */,
+			);
+			name = MixCloudAppTests;
+			productName = MixCloudAppTests;
+			productReference = A290A55F191A80ED00EC85FB /* MixCloudAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A290A536191A80ED00EC85FB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MC;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Jorrit Posthuma";
+				TargetAttributes = {
+					A290A55E191A80ED00EC85FB = {
+						TestTargetID = A290A53D191A80ED00EC85FB;
+					};
+				};
+			};
+			buildConfigurationList = A290A539191A80ED00EC85FB /* Build configuration list for PBXProject "MixCloudApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A290A535191A80ED00EC85FB;
+			productRefGroup = A290A53F191A80ED00EC85FB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A290A53D191A80ED00EC85FB /* MixCloudApp */,
+				A290A55E191A80ED00EC85FB /* MixCloudAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A290A53C191A80ED00EC85FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A290A54C191A80ED00EC85FB /* InfoPlist.strings in Resources */,
+				A290A55A191A80ED00EC85FB /* Images.xcassets in Resources */,
+				A290A552191A80ED00EC85FB /* Credits.rtf in Resources */,
+				A290A558191A80ED00EC85FB /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A290A55D191A80ED00EC85FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A290A56A191A80ED00EC85FB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A290A53A191A80ED00EC85FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A290A555191A80ED00EC85FB /* MCAppDelegate.m in Sources */,
+				A26D0473191BDF9B0034FFF1 /* SPMediaKeyTap.m in Sources */,
+				A26D0477191BE0610034FFF1 /* NSObject+SPInvocationGrabbing.m in Sources */,
+				A290A54E191A80ED00EC85FB /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A290A55B191A80ED00EC85FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A290A56C191A80ED00EC85FB /* MixCloudAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A290A564191A80ED00EC85FB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A290A53D191A80ED00EC85FB /* MixCloudApp */;
+			targetProxy = A290A563191A80ED00EC85FB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A290A54A191A80ED00EC85FB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A290A54B191A80ED00EC85FB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A290A550191A80ED00EC85FB /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A290A551191A80ED00EC85FB /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		A290A556191A80ED00EC85FB /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A290A557191A80ED00EC85FB /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		A290A568191A80ED00EC85FB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A290A569191A80ED00EC85FB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A290A56D191A80EE00EC85FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A290A56E191A80EE00EC85FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		A290A570191A80EE00EC85FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MixCloudApp/MixCloudApp-Prefix.pch";
+				INFOPLIST_FILE = "MixCloudApp/MixCloudApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A290A571191A80EE00EC85FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MixCloudApp/MixCloudApp-Prefix.pch";
+				INFOPLIST_FILE = "MixCloudApp/MixCloudApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A290A573191A80EE00EC85FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MixCloudApp.app/Contents/MacOS/MixCloudApp";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MixCloudApp/MixCloudApp-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MixCloudAppTests/MixCloudAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		A290A574191A80EE00EC85FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MixCloudApp.app/Contents/MacOS/MixCloudApp";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MixCloudApp/MixCloudApp-Prefix.pch";
+				INFOPLIST_FILE = "MixCloudAppTests/MixCloudAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A290A539191A80ED00EC85FB /* Build configuration list for PBXProject "MixCloudApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A290A56D191A80EE00EC85FB /* Debug */,
+				A290A56E191A80EE00EC85FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A290A56F191A80EE00EC85FB /* Build configuration list for PBXNativeTarget "MixCloudApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A290A570191A80EE00EC85FB /* Debug */,
+				A290A571191A80EE00EC85FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A290A572191A80EE00EC85FB /* Build configuration list for PBXNativeTarget "MixCloudAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A290A573191A80EE00EC85FB /* Debug */,
+				A290A574191A80EE00EC85FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A290A536191A80ED00EC85FB /* Project object */;
+}
