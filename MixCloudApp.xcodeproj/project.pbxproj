@@ -38,7 +38,7 @@
 		A26D0471191BDF9B0034FFF1 /* SPMediaKeyTap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMediaKeyTap.m; sourceTree = "<group>"; };
 		A26D0475191BE0610034FFF1 /* NSObject+SPInvocationGrabbing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SPInvocationGrabbing.h"; sourceTree = "<group>"; };
 		A26D0476191BE0610034FFF1 /* NSObject+SPInvocationGrabbing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SPInvocationGrabbing.m"; sourceTree = "<group>"; };
-		A290A53E191A80ED00EC85FB /* MixCloudApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MixCloudApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A290A53E191A80ED00EC85FB /* MixCloud Desktop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MixCloud Desktop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A290A541191A80ED00EC85FB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A290A544191A80ED00EC85FB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		A290A545191A80ED00EC85FB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -106,7 +106,7 @@
 		A290A53F191A80ED00EC85FB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A290A53E191A80ED00EC85FB /* MixCloudApp.app */,
+				A290A53E191A80ED00EC85FB /* MixCloud Desktop.app */,
 				A290A55F191A80ED00EC85FB /* MixCloudAppTests.xctest */,
 			);
 			name = Products;
@@ -193,7 +193,7 @@
 			);
 			name = "MixCloud Desktop";
 			productName = MixCloudApp;
-			productReference = A290A53E191A80ED00EC85FB /* MixCloudApp.app */;
+			productReference = A290A53E191A80ED00EC85FB /* MixCloud Desktop.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A290A55E191A80ED00EC85FB /* MixCloudAppTests */ = {
