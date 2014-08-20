@@ -179,9 +179,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A290A53D191A80ED00EC85FB /* MixCloudApp */ = {
+		A290A53D191A80ED00EC85FB /* MixCloud Desktop */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A290A56F191A80EE00EC85FB /* Build configuration list for PBXNativeTarget "MixCloudApp" */;
+			buildConfigurationList = A290A56F191A80EE00EC85FB /* Build configuration list for PBXNativeTarget "MixCloud Desktop" */;
 			buildPhases = (
 				A290A53A191A80ED00EC85FB /* Sources */,
 				A290A53B191A80ED00EC85FB /* Frameworks */,
@@ -191,7 +191,7 @@
 			);
 			dependencies = (
 			);
-			name = MixCloudApp;
+			name = "MixCloud Desktop";
 			productName = MixCloudApp;
 			productReference = A290A53E191A80ED00EC85FB /* MixCloudApp.app */;
 			productType = "com.apple.product-type.application";
@@ -242,7 +242,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A290A53D191A80ED00EC85FB /* MixCloudApp */,
+				A290A53D191A80ED00EC85FB /* MixCloud Desktop */,
 				A290A55E191A80ED00EC85FB /* MixCloudAppTests */,
 			);
 		};
@@ -295,7 +295,7 @@
 /* Begin PBXTargetDependency section */
 		A290A564191A80ED00EC85FB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A290A53D191A80ED00EC85FB /* MixCloudApp */;
+			target = A290A53D191A80ED00EC85FB /* MixCloud Desktop */;
 			targetProxy = A290A563191A80ED00EC85FB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -484,7 +484,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A290A56F191A80EE00EC85FB /* Build configuration list for PBXNativeTarget "MixCloudApp" */ = {
+		A290A56F191A80EE00EC85FB /* Build configuration list for PBXNativeTarget "MixCloud Desktop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A290A570191A80EE00EC85FB /* Debug */,

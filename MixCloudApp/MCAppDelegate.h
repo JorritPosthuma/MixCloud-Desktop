@@ -3,7 +3,7 @@
 
 #import "SPMediaKeyTap.h"
 
-@interface MCAppDelegate : NSObject <NSApplicationDelegate>
+@interface MCAppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate>
 
 @property (weak) IBOutlet WebView *webView;
 @property (assign) IBOutlet NSWindow *window;
