@@ -19,21 +19,8 @@
     return [self.webView stringByEvaluatingJavaScriptFromString: script];
 }
 
-- (BOOL)isPaused {
-    return [[self run: @"$('audio')[0].paused;"] isEqualToString: @"true"];
-}
-
-- (void)play {
-    [self run: @"$('audio')[0].play();"];
-}
-
-- (void)pause {
-    [self run: @"$('audio')[0].pause();"];
-}
-
 - (void)playPause {
-    if ([self isPaused]) [self play];
-    else [self pause];
+    [self run: @"$('.player-control').click()"];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
