@@ -21,15 +21,52 @@
 
 - (void)playPause {
     [self run: @"$('.player-control').click()"];
+    [self updateNowPlaying];
+}
+
+
+static NSString *nowPlayingJavaScript = @""
+"[].slice.call(document.querySelectorAll(\""
+    "[ng-bind='player.nowPlaying.currentDisplayTrack.artist'],"
+    "[ng-bind='player.nowPlaying.currentDisplayTrack.title']"
+"\")).map(function(e){return e.innerText}).join(' - ')";
+
+static NSString *castNameJavaScript = @""
+"[].slice.call(document.querySelectorAll(\""
+"[ng-bind='player.currentCloudcast.owner'],"
+"[ng-bind='player.currentCloudcast.title']"
+"\")).map(function(e){return e.innerText}).join(' - ')";
+
+- (void) updateNowPlaying {
+    NSString *nowPlaying = [self run: nowPlayingJavaScript];
+    NSString *effectiveTitle = @"MixCloud Desktop";
+    if(nowPlaying && [nowPlaying length] >= 5) {
+        if(self.lastTitle == nil || ![nowPlaying isEqualToString: self.lastTitle]) {
+            NSString *castName = [self run: castNameJavaScript];
+            NSUserNotification *notification = [[NSUserNotification alloc] init];
+            notification.title = @"MixCloud";
+            notification.informativeText = [NSString stringWithFormat:@"%@\n%@", nowPlaying, castName];
+            [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+            self.lastTitle = nowPlaying;
+        }
+        effectiveTitle = nowPlaying;
+    }
+    [self.window setTitle: effectiveTitle];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [self loadSettings];
     [self updateUIFromSettings];
+    [self.window setDelegate:self];
+    [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
+    self.titleUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:10
+                                                             target:self
+                                                           selector:@selector(updateNowPlaying)
+                                                           userInfo:nil
+                                                            repeats:YES];
     // initialise and save preferences
     // via http://www.lostdecadegames.com/completing-your-native-mac-osx-app-built-in-h/
     // and http://stackoverflow.com/questions/8198453/local-storage-in-webview-is-not-persistent/18153115#18153115
-    [self.window setDelegate:self];
     WebPreferences *prefs = [self.webView preferences];
     [prefs setAutosaves:YES];
     [prefs _setLocalStorageDatabasePath:@"~/Library/Application Support/MixCloudApp/LocalStorage"];
@@ -47,6 +84,13 @@
 	if([SPMediaKeyTap usesGlobalMediaKeyTap]) {
 		[self.keyTap startWatchingMediaKeys];
     }
+}
+
+- (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center
+     shouldPresentNotification:(NSUserNotification *)notification
+{
+    // Always present our title notification bubbles
+    return YES;
 }
 
 - (void)windowWillClose:(NSNotification *)aNotification {
