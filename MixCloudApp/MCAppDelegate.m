@@ -33,9 +33,12 @@
     [prefs setAutosaves:YES];
     [prefs _setLocalStorageDatabasePath:@"~/Library/Application Support/MixCloudApp/LocalStorage"];
     [prefs setLocalStorageEnabled:YES];
-    
+    [prefs setJavaScriptEnabled:YES];
+    [prefs setJavaScriptCanOpenWindowsAutomatically:YES];
+    [self.webView setUIDelegate:self];
+    [self.webView setGroupName:@"MixCloudApp"];
     // navigate to mixcloud
-    [self.webView.mainFrame loadRequest: [NSURLRequest requestWithURL: [NSURL URLWithString: @"http://mixcloud.com"]]];
+    [self.webView.mainFrame loadRequest: [NSURLRequest requestWithURL: [NSURL URLWithString: @"https://mixcloud.com"]]];
 	self.keyTap = [[SPMediaKeyTap alloc] initWithDelegate:self];
 }
 
@@ -78,5 +81,27 @@
 		NSLog(@"%@", debugString);
 	}
 }
+
+- (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request {
+    return [self openPopup: request];
+}
+
+- (WebView *) openPopup:(NSURLRequest *) request {
+    if(self.popupWindow != NULL) {
+        [self.popupWindow close];
+        self.popupWindow = NULL;
+    }
+    NSRect frame = CGRectMake(0, 0, 800, 600);
+    NSWindow *win = [[NSWindow alloc] initWithContentRect:frame styleMask:(NSTitledWindowMask | NSClosableWindowMask) backing:NSBackingStoreBuffered defer:NO];
+    [win setAnimationBehavior: NSWindowAnimationBehaviorAlertPanel];
+    [win center];
+    [win makeKeyAndOrderFront: self];
+    self.popupWindow = win;
+    WebView *view = (WebView*)[[WebView alloc] initWithFrame:frame];
+    [win setContentView: view];
+    [[view mainFrame] loadRequest: request];
+    return view;
+}
+
 
 @end
