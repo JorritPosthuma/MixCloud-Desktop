@@ -10,4 +10,7 @@
 
 @property (retain) NSWindow *popupWindow;
 
+@property (assign) BOOL showNotifications;
+@property (weak) IBOutlet NSMenuItem *showNotificationsMenuItem;
+
 @end

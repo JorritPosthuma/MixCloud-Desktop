@@ -24,7 +24,8 @@
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    
+    [self loadSettings];
+    [self updateUIFromSettings];
     // initialise and save preferences
     // via http://www.lostdecadegames.com/completing-your-native-mac-osx-app-built-in-h/
     // and http://stackoverflow.com/questions/8198453/local-storage-in-webview-is-not-persistent/18153115#18153115
@@ -101,6 +102,32 @@
     [win setContentView: view];
     [[view mainFrame] loadRequest: request];
     return view;
+}
+
+-(void)updateUIFromSettings {
+    [self.showNotificationsMenuItem setState:(self.showNotifications ? NSOnState : NSOffState)];
+}
+
+-(void)updateSettingsFromUI {
+    self.showNotifications = ([self.showNotificationsMenuItem state] == NSOnState ? TRUE : FALSE);
+    [self saveSettings];
+}
+
+-(void)loadSettings {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    self.showNotifications = [defaults boolForKey:@"ShowNotifications"];
+}
+
+-(void)saveSettings {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:self.showNotifications forKey:@"ShowNotifications"];
+}
+
+
+-(IBAction)toggleShowNotifications:(id)sender {
+    self.showNotifications = !self.showNotifications;
+    [self saveSettings];
+    [self updateUIFromSettings];
 }
 
 
