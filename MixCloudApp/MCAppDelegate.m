@@ -20,7 +20,7 @@
 }
 
 - (void)playPause {
-    [self run: @"$('.player-control').click()"];
+    [self run: @"$('.player-control,.mz-player-control').click()"];
     [self updateNowPlaying];
 }
 
