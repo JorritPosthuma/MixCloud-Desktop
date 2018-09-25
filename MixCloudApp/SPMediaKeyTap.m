@@ -16,6 +16,7 @@ static pascal OSStatus appSwitched (EventHandlerCallRef nextHandler, EventRef ev
 static pascal OSStatus appTerminated (EventHandlerCallRef nextHandler, EventRef evt, void* userData);
 static CGEventRef tapEventCallback(CGEventTapProxy proxy, CGEventType type, CGEventRef event, void *refcon);
 
+static BOOL _didAskForAccessibility = false;
 
 // Inspired by http://gist.github.com/546311
 
@@ -81,20 +82,24 @@ static CGEventRef tapEventCallback(CGEventTapProxy proxy, CGEventType type, CGEv
 }
 
 -(void)startWatchingMediaKeys;{
-    // Prevent having multiple mediaKeys threads
-    [self stopWatchingMediaKeys];
-    
-	[self setShouldInterceptMediaKeyEvents:YES];
-    
-    // We need accessibility access for the event tap
-    if (AXIsProcessTrustedWithOptions != NULL) {
-        NSDictionary *options = @{(id)kAXTrustedCheckOptionPrompt: @YES};
-        if (AXIsProcessTrustedWithOptions((CFDictionaryRef)options)) {
+    // This is called every time the app gains focus, don't do anything if we're already tapped
+    if (!_eventPort && !_didAskForAccessibility) {
+        // Prevent having multiple mediaKeys threads
+        [self stopWatchingMediaKeys];
+        
+        [self setShouldInterceptMediaKeyEvents:YES];
+        
+        // We need accessibility access for the event tap
+        if (AXIsProcessTrustedWithOptions != NULL) {
+            _didAskForAccessibility = true;
+            NSDictionary *options = @{(id)kAXTrustedCheckOptionPrompt: @YES};
+            if (AXIsProcessTrustedWithOptions((CFDictionaryRef)options)) {
+                [self addEventTap];
+            }
+        } else {
+            // before 10.9, just do it and hope the user enables accessibility at some point
             [self addEventTap];
         }
-    } else {
-        // before 10.9, just do it and hope the user enables accessibility at some point
-        [self addEventTap];
     }
 }
 -(void)stopWatchingMediaKeys;
