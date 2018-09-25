@@ -1,9 +1,6 @@
 #import "MCAppDelegate.h"
-#import "NSObject+SPInvocationGrabbing.h" // https://gist.github.com/511181, in submodule
-#import <ApplicationServices/ApplicationServices.h>
 
 @interface MCAppDelegate ()
-@property (nonatomic, strong) SPMediaKeyTap *keyTap;
 @end
 
 @interface WebPreferences (WebPreferencesPrivate)
@@ -56,12 +53,6 @@ static NSString *castNameJavaScript = @""
     [self.window setTitle: effectiveTitle];
 }
 
-- (void)startWatchingMediaKeys {
-    if([SPMediaKeyTap usesGlobalMediaKeyTap]) {
-        [self.keyTap startWatchingMediaKeys];
-    }
-}
-
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [self loadSettings];
     [self updateUIFromSettings];
@@ -85,24 +76,7 @@ static NSString *castNameJavaScript = @""
     [self.webView setGroupName:@"MixCloudApp"];
     // navigate to mixcloud
     [self.webView.mainFrame loadRequest: [NSURLRequest requestWithURL: [NSURL URLWithString: @"https://mixcloud.com"]]];
-	self.keyTap = [[SPMediaKeyTap alloc] initWithDelegate:self];
-    
-    [NSThread sleepForTimeInterval:1.0f];
-    // We need accessibility access for the event tap
-    if (AXIsProcessTrustedWithOptions != NULL && self.requestedAccessibility == NO) {
-        NSDictionary *options = @{(__bridge id)kAXTrustedCheckOptionPrompt: @YES};
-        if (AXIsProcessTrustedWithOptions((CFDictionaryRef)options)) {
-            [self startWatchingMediaKeys];
-        }
-        // never ask again
-        self.requestedAccessibility = YES;
-        [self saveSettings];
-    }
 
-}
-
-- (void)applicationDidBecomeActive:(NSNotification *)notification {
-    [self startWatchingMediaKeys];
 }
 
 - (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center
@@ -114,36 +88,6 @@ static NSString *castNameJavaScript = @""
 
 - (void)windowWillClose:(NSNotification *)aNotification {
 	[NSApp terminate:self];
-}
-
--(void)mediaKeyTap:(SPMediaKeyTap*)keyTap receivedMediaKeyEvent:(NSEvent*)event; {
-	int keyCode = (([event data1] & 0xFFFF0000) >> 16);
-	int keyFlags = ([event data1] & 0x0000FFFF);
-	BOOL keyIsPressed = (((keyFlags & 0xFF00) >> 8)) == 0xA;
-	int keyRepeat = (keyFlags & 0x1);
-    
-	if (keyIsPressed) {
-		NSString *debugString = [NSString stringWithFormat:@"%@", keyRepeat?@", repeated.":@"."];
-		switch (keyCode) {
-			case NX_KEYTYPE_PLAY:
-				debugString = [@"Play/pause pressed" stringByAppendingString:debugString];
-                [self playPause];
-				break;
-				
-			case NX_KEYTYPE_FAST:
-				debugString = [@"Ffwd pressed" stringByAppendingString:debugString];
-				break;
-				
-			case NX_KEYTYPE_REWIND:
-				debugString = [@"Rewind pressed" stringByAppendingString:debugString];
-				break;
-                
-			default:
-				debugString = [NSString stringWithFormat:@"Key %d pressed%@", keyCode, debugString];
-				break;
-		}
-		NSLog(@"%@", debugString);
-	}
 }
 
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request {
@@ -179,13 +123,11 @@ static NSString *castNameJavaScript = @""
 -(void)loadSettings {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     self.showNotifications = [defaults boolForKey:@"ShowNotifications"];
-    self.requestedAccessibility = [defaults boolForKey:@"RequestedAccessibility"];
 }
 
 -(void)saveSettings {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:self.showNotifications forKey:@"ShowNotifications"];
-    [defaults setBool:self.requestedAccessibility forKey:@"RequestedAccessibility"];
 }
 
 

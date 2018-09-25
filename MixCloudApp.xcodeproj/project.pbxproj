@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		70FF293C2159C6ED00107173 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70FF293B2159C6ED00107173 /* ApplicationServices.framework */; };
 		70FF293E2159CE6C00107173 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70FF293D2159CE6C00107173 /* Images.xcassets */; };
-		A26D0473191BDF9B0034FFF1 /* SPMediaKeyTap.m in Sources */ = {isa = PBXBuildFile; fileRef = A26D0471191BDF9B0034FFF1 /* SPMediaKeyTap.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		A26D0477191BE0610034FFF1 /* NSObject+SPInvocationGrabbing.m in Sources */ = {isa = PBXBuildFile; fileRef = A26D0476191BE0610034FFF1 /* NSObject+SPInvocationGrabbing.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A290A542191A80ED00EC85FB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A290A541191A80ED00EC85FB /* Cocoa.framework */; };
 		A290A54C191A80ED00EC85FB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A290A54A191A80ED00EC85FB /* InfoPlist.strings */; };
 		A290A54E191A80ED00EC85FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A290A54D191A80ED00EC85FB /* main.m */; };
@@ -23,10 +21,6 @@
 /* Begin PBXFileReference section */
 		70FF293B2159C6ED00107173 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		70FF293D2159CE6C00107173 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		A26D0470191BDF9B0034FFF1 /* SPMediaKeyTap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMediaKeyTap.h; sourceTree = "<group>"; };
-		A26D0471191BDF9B0034FFF1 /* SPMediaKeyTap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMediaKeyTap.m; sourceTree = "<group>"; };
-		A26D0475191BE0610034FFF1 /* NSObject+SPInvocationGrabbing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SPInvocationGrabbing.h"; sourceTree = "<group>"; };
-		A26D0476191BE0610034FFF1 /* NSObject+SPInvocationGrabbing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SPInvocationGrabbing.m"; sourceTree = "<group>"; };
 		A290A53E191A80ED00EC85FB /* MixCloud Desktop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MixCloud Desktop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A290A541191A80ED00EC85FB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A290A544191A80ED00EC85FB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -60,17 +54,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A26D0479191BE4040034FFF1 /* SPMediaKeyTap */ = {
-			isa = PBXGroup;
-			children = (
-				A26D0475191BE0610034FFF1 /* NSObject+SPInvocationGrabbing.h */,
-				A26D0476191BE0610034FFF1 /* NSObject+SPInvocationGrabbing.m */,
-				A26D0470191BDF9B0034FFF1 /* SPMediaKeyTap.h */,
-				A26D0471191BDF9B0034FFF1 /* SPMediaKeyTap.m */,
-			);
-			name = SPMediaKeyTap;
-			sourceTree = "<group>";
-		};
 		A290A535191A80ED00EC85FB = {
 			isa = PBXGroup;
 			children = (
@@ -113,7 +96,6 @@
 		A290A547191A80ED00EC85FB /* MixCloudApp */ = {
 			isa = PBXGroup;
 			children = (
-				A26D0479191BE4040034FFF1 /* SPMediaKeyTap */,
 				A290A553191A80ED00EC85FB /* MCAppDelegate.h */,
 				A290A554191A80ED00EC85FB /* MCAppDelegate.m */,
 				A290A556191A80ED00EC85FB /* MainMenu.xib */,
@@ -221,8 +203,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A290A555191A80ED00EC85FB /* MCAppDelegate.m in Sources */,
-				A26D0473191BDF9B0034FFF1 /* SPMediaKeyTap.m in Sources */,
-				A26D0477191BE0610034FFF1 /* NSObject+SPInvocationGrabbing.m in Sources */,
 				A290A54E191A80ED00EC85FB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
