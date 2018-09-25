@@ -16,8 +16,6 @@ static pascal OSStatus appSwitched (EventHandlerCallRef nextHandler, EventRef ev
 static pascal OSStatus appTerminated (EventHandlerCallRef nextHandler, EventRef evt, void* userData);
 static CGEventRef tapEventCallback(CGEventTapProxy proxy, CGEventType type, CGEventRef event, void *refcon);
 
-static BOOL _didAskForAccessibility = false;
-
 // Inspired by http://gist.github.com/546311
 
 @implementation SPMediaKeyTap
@@ -83,16 +81,15 @@ static BOOL _didAskForAccessibility = false;
 
 -(void)startWatchingMediaKeys;{
     // This is called every time the app gains focus, don't do anything if we're already tapped
-    if (!_eventPort && !_didAskForAccessibility) {
+    if (!_eventPort) {
         // Prevent having multiple mediaKeys threads
         [self stopWatchingMediaKeys];
         
         [self setShouldInterceptMediaKeyEvents:YES];
         
-        // We need accessibility access for the event tap
+        // Check if we have accessibility access for the event tap
         if (AXIsProcessTrustedWithOptions != NULL) {
-            _didAskForAccessibility = true;
-            NSDictionary *options = @{(id)kAXTrustedCheckOptionPrompt: @YES};
+            NSDictionary *options = @{(id)kAXTrustedCheckOptionPrompt: @NO};
             if (AXIsProcessTrustedWithOptions((CFDictionaryRef)options)) {
                 [self addEventTap];
             }
@@ -172,7 +169,9 @@ static BOOL _didAskForAccessibility = false;
 		@"com.ttitt.b-music",
 		@"com.beardedspice.BeardedSpice",
 		@"com.plug.Plug",
+        @"com.plug.Plug2",
         @"com.netease.163music",
+        @"org.quodlibet.quodlibet",
 		nil
 	];
 }
@@ -303,7 +302,7 @@ NSString *kIgnoreMediaKeysDefaultsKey = @"SPIgnoreMediaKeys";
 
 	Boolean same;
 	OSErr err = SameProcess(&mySerial, &topSerial, &same);
-	[self setShouldInterceptMediaKeyEvents:(err == noErr && same)];	
+	[self setShouldInterceptMediaKeyEvents:(err == noErr && same)];
 
 }
 -(void)appIsNowFrontmost:(ProcessSerialNumber)psn;
