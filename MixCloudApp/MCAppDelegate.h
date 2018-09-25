@@ -14,6 +14,7 @@
 @property (retain) NSString *lastTitle;
 
 @property (assign) BOOL showNotifications;
+@property (assign) BOOL requestedAccessibility;
 @property (weak) IBOutlet NSMenuItem *showNotificationsMenuItem;
 
 

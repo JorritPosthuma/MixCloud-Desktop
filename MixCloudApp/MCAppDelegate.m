@@ -1,4 +1,6 @@
 #import "MCAppDelegate.h"
+#import "NSObject+SPInvocationGrabbing.h" // https://gist.github.com/511181, in submodule
+#import <ApplicationServices/ApplicationServices.h>
 
 @interface MCAppDelegate ()
 @property (nonatomic, strong) SPMediaKeyTap *keyTap;
@@ -54,6 +56,12 @@ static NSString *castNameJavaScript = @""
     [self.window setTitle: effectiveTitle];
 }
 
+- (void)startWatchingMediaKeys {
+    if([SPMediaKeyTap usesGlobalMediaKeyTap]) {
+        [self.keyTap startWatchingMediaKeys];
+    }
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [self loadSettings];
     [self updateUIFromSettings];
@@ -78,12 +86,23 @@ static NSString *castNameJavaScript = @""
     // navigate to mixcloud
     [self.webView.mainFrame loadRequest: [NSURLRequest requestWithURL: [NSURL URLWithString: @"https://mixcloud.com"]]];
 	self.keyTap = [[SPMediaKeyTap alloc] initWithDelegate:self];
+    
+    [NSThread sleepForTimeInterval:1.0f];
+    // We need accessibility access for the event tap
+    if (AXIsProcessTrustedWithOptions != NULL && self.requestedAccessibility == NO) {
+        NSDictionary *options = @{(__bridge id)kAXTrustedCheckOptionPrompt: @YES};
+        if (AXIsProcessTrustedWithOptions((CFDictionaryRef)options)) {
+            [self startWatchingMediaKeys];
+        }
+        // never ask again
+        self.requestedAccessibility = YES;
+        [self saveSettings];
+    }
+
 }
 
 - (void)applicationDidBecomeActive:(NSNotification *)notification {
-	if([SPMediaKeyTap usesGlobalMediaKeyTap]) {
-		[self.keyTap startWatchingMediaKeys];
-    }
+    [self startWatchingMediaKeys];
 }
 
 - (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center
@@ -160,11 +179,13 @@ static NSString *castNameJavaScript = @""
 -(void)loadSettings {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     self.showNotifications = [defaults boolForKey:@"ShowNotifications"];
+    self.requestedAccessibility = [defaults boolForKey:@"RequestedAccessibility"];
 }
 
 -(void)saveSettings {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:self.showNotifications forKey:@"ShowNotifications"];
+    [defaults setBool:self.requestedAccessibility forKey:@"RequestedAccessibility"];
 }
 
 
