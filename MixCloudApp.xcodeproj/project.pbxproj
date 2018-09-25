@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		70FF293E2159CE6C00107173 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70FF293D2159CE6C00107173 /* Images.xcassets */; };
 		70FF293C2159C6ED00107173 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70FF293B2159C6ED00107173 /* ApplicationServices.framework */; };
+		70FF293E2159CE6C00107173 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70FF293D2159CE6C00107173 /* Images.xcassets */; };
 		A26D0473191BDF9B0034FFF1 /* SPMediaKeyTap.m in Sources */ = {isa = PBXBuildFile; fileRef = A26D0471191BDF9B0034FFF1 /* SPMediaKeyTap.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A26D0477191BE0610034FFF1 /* NSObject+SPInvocationGrabbing.m in Sources */ = {isa = PBXBuildFile; fileRef = A26D0476191BE0610034FFF1 /* NSObject+SPInvocationGrabbing.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A290A542191A80ED00EC85FB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A290A541191A80ED00EC85FB /* Cocoa.framework */; };
@@ -21,8 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		70FF293D2159CE6C00107173 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		70FF293B2159C6ED00107173 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
+		70FF293D2159CE6C00107173 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A26D0470191BDF9B0034FFF1 /* SPMediaKeyTap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMediaKeyTap.h; sourceTree = "<group>"; };
 		A26D0471191BDF9B0034FFF1 /* SPMediaKeyTap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMediaKeyTap.m; sourceTree = "<group>"; };
 		A26D0475191BE0610034FFF1 /* NSObject+SPInvocationGrabbing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SPInvocationGrabbing.h"; sourceTree = "<group>"; };
@@ -40,7 +40,6 @@
 		A290A553191A80ED00EC85FB /* MCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCAppDelegate.h; sourceTree = "<group>"; };
 		A290A554191A80ED00EC85FB /* MCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCAppDelegate.m; sourceTree = "<group>"; };
 		A290A557191A80ED00EC85FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		A290A560191A80ED00EC85FB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A290A567191A80ED00EC85FB /* MixCloudAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MixCloudAppTests-Info.plist"; sourceTree = "<group>"; };
 		A290A569191A80ED00EC85FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A290A56B191A80ED00EC85FB /* MixCloudAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MixCloudAppTests.m; sourceTree = "<group>"; };
@@ -96,7 +95,6 @@
 				70FF293B2159C6ED00107173 /* ApplicationServices.framework */,
 				A290A575191A822600EC85FB /* WebKit.framework */,
 				A290A541191A80ED00EC85FB /* Cocoa.framework */,
-				A290A560191A80ED00EC85FB /* XCTest.framework */,
 				A290A543191A80ED00EC85FB /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -367,6 +365,7 @@
 		A290A570191A80EE00EC85FB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MixCloudApp/MixCloudApp-Prefix.pch";
@@ -380,6 +379,7 @@
 		A290A571191A80EE00EC85FB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MixCloudApp/MixCloudApp-Prefix.pch";
