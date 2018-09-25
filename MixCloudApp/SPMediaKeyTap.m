@@ -1,6 +1,7 @@
 // Copyright (c) 2010 Spotify AB
 #import "SPMediaKeyTap.h"
 #import "NSObject+SPInvocationGrabbing.h" // https://gist.github.com/511181, in submodule
+#import <ApplicationServices/ApplicationServices.h>
 
 @interface SPMediaKeyTap ()
 -(BOOL)shouldInterceptMediaKeyEvents;
@@ -60,26 +61,41 @@ static CGEventRef tapEventCallback(CGEventTapProxy proxy, CGEventType type, CGEv
 	_app_switching_ref = NULL;
 }
 
+-(void)addEventTap;{
+    // Add an event tap to intercept the system defined media key events
+    _eventPort = CGEventTapCreate(kCGSessionEventTap,
+                                  kCGHeadInsertEventTap,
+                                  kCGEventTapOptionDefault,
+                                  CGEventMaskBit(NX_SYSDEFINED),
+                                  tapEventCallback,
+                                  self);
+    
+    // safety net to not crash if this method is called without accessibility permissions
+    if (_eventPort) {
+        _eventPortSource = CFMachPortCreateRunLoopSource(kCFAllocatorSystemDefault, _eventPort, 0);
+        assert(_eventPortSource != NULL);
+        
+        // Let's do this in a separate thread so that a slow app doesn't lag the event tap
+        [NSThread detachNewThreadSelector:@selector(eventTapThread) toTarget:self withObject:nil];
+    }
+}
+
 -(void)startWatchingMediaKeys;{
     // Prevent having multiple mediaKeys threads
     [self stopWatchingMediaKeys];
     
 	[self setShouldInterceptMediaKeyEvents:YES];
-	
-	// Add an event tap to intercept the system defined media key events
-	_eventPort = CGEventTapCreate(kCGSessionEventTap,
-								  kCGHeadInsertEventTap,
-								  kCGEventTapOptionDefault,
-								  CGEventMaskBit(NX_SYSDEFINED),
-								  tapEventCallback,
-								  self);
-	assert(_eventPort != NULL);
-	
-    _eventPortSource = CFMachPortCreateRunLoopSource(kCFAllocatorSystemDefault, _eventPort, 0);
-	assert(_eventPortSource != NULL);
-	
-	// Let's do this in a separate thread so that a slow app doesn't lag the event tap
-	[NSThread detachNewThreadSelector:@selector(eventTapThread) toTarget:self withObject:nil];
+    
+    // We need accessibility access for the event tap
+    if (AXIsProcessTrustedWithOptions != NULL) {
+        NSDictionary *options = @{(id)kAXTrustedCheckOptionPrompt: @YES};
+        if (AXIsProcessTrustedWithOptions((CFDictionaryRef)options)) {
+            [self addEventTap];
+        }
+    } else {
+        // before 10.9, just do it and hope the user enables accessibility at some point
+        [self addEventTap];
+    }
 }
 -(void)stopWatchingMediaKeys;
 {
