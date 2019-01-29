@@ -1,13 +1,6 @@
-# MixCloud Desktop
+# MixCloud Desktop [ABANDONED]
 
-MixCloud Desktop app with support for Play/Pause media keys
-
-### [Download](https://github.com/JorritPosthuma/MixCloud-Desktop/releases)
-
-### Features
-
-* Responds to media keys
-* Remembers position of played sets (by https://github.com/TheSpyder)
+This project has been abandoned. Please look to [MixCloud Play](https://github.com/uffou/MixCloud-Play) for your desktop MixCloud needs, it is an Electron-based app with very similar features.
 
 ### Screenshot
 
